@@ -14,7 +14,7 @@ jobs:
           command: docker-compose up -d
       - run:
           name: Wait for db
-          command: dockerize -wait` tcp://localhost:3306 -timeout 1m
+          command: dockerize -wait `tcp://localhost:3306 -timeout 1m`
       - run:
           name: "before_test: setup db"
           command: docker-compose run web rails db:create db:migrate

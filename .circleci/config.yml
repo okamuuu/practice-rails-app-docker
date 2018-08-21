@@ -13,7 +13,7 @@ jobs:
           command: docker-compose up -d
       - run:
           name: Wait for db
-          command: sh db/wait_for_mysql.sh `echo 'db started'`
+          command: sh db/wait_for_mysql.sh 'echo db started'
       - run:
           name: "before_test: setup db"
           command: docker-compose run web rails db:create db:migrate

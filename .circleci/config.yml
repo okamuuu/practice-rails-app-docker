@@ -13,7 +13,7 @@ jobs:
           command: docker-compose up -d
       - run:
           name: Wait for db
-          command: sh .circleci/wait.sh docker-compose exec db mysqladmin -uroot -proot ping
+          command: sh .circleci/wait.sh docker-compose exec db mysqladmin -h127.0.0.1 -uroot -proot ping
       - run:
           name: "before_test: setup db"
           command: docker-compose run web rails db:create db:migrate
